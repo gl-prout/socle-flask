@@ -43,7 +43,13 @@ class Controllers:
 
             self.rules.append(r)
 
-        def register_methods(self, rule, view_name, view_func, methods=METHODS):
+        def register_methods(
+            self,
+            rule,
+            view_name,
+            view_func,
+            methods=METHODS
+        ):
             r = {}
             r["rule"] = rule
             r["view_name"] = view_name
