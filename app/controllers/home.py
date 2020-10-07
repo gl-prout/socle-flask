@@ -1,6 +1,6 @@
-from flask import abort, request
 from app.controllers import Controllers as ctrl
 from app.services import home as home_serv
+from flask import abort, request
 
 
 def index():

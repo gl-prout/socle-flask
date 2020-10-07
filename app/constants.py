@@ -1,5 +1,6 @@
-from . import app
 from app.common import response as resp_common
+
+from . import app
 
 configs = app.config
 name = app
