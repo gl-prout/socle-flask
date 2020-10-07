@@ -7,6 +7,7 @@ from flask_mongoengine import MongoEngine
 
 from app.common import response as resp_serv
 from app.data.user import User
+from app.repository import user as user_repo
 
 db = MongoEngine()
 app = Flask(__name__)
@@ -57,9 +58,9 @@ def handle_error(e):
 # JWT
 def authenticate(login, password):
     if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s.]+$", login):
-        user = User.objects(username=login).first()
+        user = user_repo.find_by_username(login)
     else:
-        user = User.objects(email=login).first()
+        user = user_repo.find_by_email(login)
     if user and bcrypt.check_password_hash(user.password, password):
         user.id = str(user.id)
         return user
