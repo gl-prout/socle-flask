@@ -1,21 +1,15 @@
 FROM ubuntu:18.04
 
-#ENV FLASK_APP oneplay_app.webapp
+#ENV FLASK_APP app.webapp
 ENV FLASK_DEBUG True
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
 #Installation python 3.6
 RUN apt update
-#RUN apt-get install -y software-properties-common
-#RUN add-apt-repository ppa:jonathonf/python-3.6 -y
-#RUN apt update
 RUN apt-get install python3-pip wget vim -y
 RUN python3 -V
 RUN pip3 --version
-#RUN wget https://bootstrap.pypa.io/get-pip.py
-#RUN python3.6 get-pip.py
-#RUN rm -r get-pip.py
 
 #Installation mongo shell
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add -
