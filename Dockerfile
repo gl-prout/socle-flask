@@ -1,28 +1,24 @@
-FROM ubuntu:18.04
+# For more information, please refer to https://aka.ms/vscode-docker-python
+FROM python:3.8-slim-buster
 
-#ENV FLASK_APP app.webapp
-ENV FLASK_DEBUG True
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
-
-#Installation python 3.6
-RUN apt update
-RUN apt-get install python3-pip wget vim -y
-RUN python3 -V
-RUN pip3 --version
-
-#Installation mongo shell
-RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add -
-RUN echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list
-RUN apt install -y gnupg apt-transport-https
-RUN apt update -y
-RUN apt install -y mongodb-org-shell
-
-#Installation requirements
-COPY requirements.txt .
-RUN pip3 install -r requirements.txt
-
-VOLUME /var/www
 EXPOSE 5000
 
-CMD flask run --host=0.0.0.0
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE 1
+
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED 1
+
+# Install pip requirements
+ADD requirements.txt .
+RUN python -m pip install -r requirements.txt
+
+WORKDIR /app
+ADD . /app
+
+# Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
+RUN useradd appuser && chown -R appuser /app
+USER appuser
+
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app.webapp:app"]

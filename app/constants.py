@@ -8,6 +8,6 @@ default_return = resp_common.response(
     success=True,
     message='Awaiting API calls',
     data={
-        'version': '1.0',
+        'version': '1.1.0',
     }
 )
