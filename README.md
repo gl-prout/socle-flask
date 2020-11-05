@@ -120,6 +120,7 @@ You will also have to configure your virtualhost like this
 
     Alias /static/ /var/www/www.example.com/app/static/
     Alias /uploads/ /var/www/www.example.com/app/uploads/
+    Alias /templates/ /var/www/www.example.com/app/templates/
 
     <Directory /var/www/www.example.com>
         WSGIApplicationGroup %{GLOBAL}
