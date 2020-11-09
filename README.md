@@ -131,3 +131,33 @@ You will also have to configure your virtualhost like this
 ```
 
 Note that if you serve using WSGI, you have to symlink your `templates` folder into the project root folder.
+
+## Response
+
+To compose a `JSON` response, use the `app/common/response.py` `response(success=True, message='Success', data={})` function to structure your response uniformly.
+
+### Success
+
+```json
+{
+    "success": true,
+    "message": "Message",
+    "data": {
+        "properties": "values"
+    }
+}
+```
+
+### Error
+
+```json
+{
+    "success": false,
+    "message": "Message",
+    "data": {
+        "properties": "values"
+    }
+}
+```
+
+To render a template, use the flask default `render_template` function.
