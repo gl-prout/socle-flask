@@ -2,5 +2,5 @@
 .vscode/
 venv/
 env/
-*.dist
+*.cfg
 __pycache__/

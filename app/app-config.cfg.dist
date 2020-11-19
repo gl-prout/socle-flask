@@ -15,7 +15,7 @@ JWT_AUTH_HEADER_PREFIX = 'Bearer'
 JWT_SECRET_KEY = 'top-secret-key'
 
 BASE_URL = 'http://127.0.0.1:5000/'
-ABS_PATH = '/home/arilanto/Documents/srcs/py/socle_flask/'
-ABS_UPLOAD_FOLDER = '/home/arilanto/Documents/srcs/py/socle_flask/app/uploads'
+ABS_PATH = '/absolute/path/to/project/folder'
+ABS_UPLOAD_FOLDER = '/absolute/path/to/project/folder/app/uploads'
 UPLOAD_FOLDER = 'app/uploads'
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024
