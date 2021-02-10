@@ -87,11 +87,13 @@ components:
     Error:
       type: object
       required:
-        - code
+        - success
         - message
+        - data
       properties:
-        code:
-          type: integer
-          format: int32
         message:
           type: string
+        success:
+          type: boolean
+        data:
+          type: object
