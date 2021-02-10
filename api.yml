@@ -24,7 +24,43 @@ paths:
             application/json:
               schema:
                   $ref: '#/components/schemas/Error'
-  /user:
+  /login:
+    post:
+      summary: 'Logs in an user'
+      operationId: login
+      tags:
+        - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '200':
+          description: 'Login succesful'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /user/subscribe:
+    post:
+      summary: 'Register new user'
+      operationId: subscribe
+      tags:
+        - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscribe'
+      responses:
+        '200':
+          description: 'Registration succesful'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /user/profile:
     get:
       summary: 'Sample endpoint: Returns details about a particular user'
       operationId: listUser
