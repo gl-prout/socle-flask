@@ -3,8 +3,27 @@ info:
   version: 1.0.0
   title: flsk_api
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'http://localhost:5000'
 paths:
+  /:
+    get:
+      summary: 'Home endpoint: Returns default return'
+      operationId: home
+      tags:
+        - home
+      responses:
+        '200':
+          description: 'Sample response: Default response format'
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Response'
+        default:
+          description: Unexpected error
+          content: 
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Error'
   /user:
     get:
       summary: 'Sample endpoint: Returns details about a particular user'
@@ -39,6 +58,19 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Response:
+      type: object
+      required:
+        - message
+        - success
+        - data
+      properties:
+        message:
+          type: string
+        success:
+          type: boolean
+        data:
+          type: object
     User:
       type: object
       required:
