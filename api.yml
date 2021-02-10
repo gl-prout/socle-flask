@@ -62,30 +62,17 @@ paths:
                 $ref: '#/components/schemas/Response'
   /user/profile:
     get:
-      summary: 'Sample endpoint: Returns details about a particular user'
-      operationId: listUser
+      summary: 'Sample endpoint: Returns details about current user'
+      operationId: profile
       tags:
         - user
-      parameters:
-        - name: id
-          in: query
-          description: ID of the user
-          required: true
-          schema:
-            type: integer
-            format: int32
       responses:
         '200':
-          description: 'Sample response: Details about a user by ID'
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
+          description: 'Sample response: Details about current user'
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Response'
         default:
           description: Unexpected error
           content:
