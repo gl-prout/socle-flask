@@ -58,6 +58,29 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Login:
+      type: object
+      required:
+        - login
+        - password
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+    Register:
+      type: object
+      required:
+        - email
+        - username
+        - password
+      properties:
+        email:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
     Response:
       type: object
       required:
