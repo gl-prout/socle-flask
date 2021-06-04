@@ -115,6 +115,7 @@ You will also have to configure your virtualhost like this
     WSGIDaemonProcess www.example.com user=www-data group=www-data threads=5 processes=2
     WSGIProcessGroup www.example.com
     WSGIScriptAlias / /var/www/www.example.com/application.wsgi
+    WSGIPassAuthorization on
 
     ErrorLog /var/www/www.example.com/logs/error.log
     CustomLog /var/www/www.example.com/logs/access.log combined
