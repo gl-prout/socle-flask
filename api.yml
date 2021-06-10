@@ -41,7 +41,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Response'
+                $ref: '#/components/schemas/LoginResponse'
   /user/subscribe:
     post:
       summary: 'Register new user'
@@ -117,6 +117,13 @@ components:
           type: boolean
         data:
           type: object
+    LoginResponse:
+      type: object
+      required:
+        - token
+      properties:
+        token:
+          type: string
     User:
       type: object
       required:
