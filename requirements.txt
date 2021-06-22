@@ -1,6 +1,7 @@
-flask==1.1.2
-flask_mongoengine==0.9.5
-Flask_Bcrypt==0.7.1
-mongoengine==0.18.2
 Flask_JWT==0.3.2
+Flask==1.1.1
+flask_mongoengine==0.9.5
+mongoengine==0.18.2
+Flask_Bcrypt==0.7.1
+flask_swagger_ui==3.36.0
 gunicorn==20.0.4

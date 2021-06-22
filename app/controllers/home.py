@@ -10,8 +10,20 @@ def index():
         abort(405, description='Only GET method')
 
 
+def getapi(filename):
+    if request.method == 'GET':
+        return home_serv.api(filename)
+    else:
+        abort(405, description='Only GET method')
+
+
 ctrl().register_methods(
     '/',
     'index',
     index
+)
+ctrl().register_methods(
+    '/apidoc/<path:filename>',
+    'getapi',
+    getapi
 )

@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: flsk_api
+servers:
+  - url: 'http://localhost:5000'
+paths:
+  /:
+    get:
+      summary: 'Home endpoint: Returns default return'
+      operationId: home
+      tags:
+        - home
+      responses:
+        '200':
+          description: 'Sample response: Default response format'
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Response'
+        default:
+          description: Unexpected error
+          content: 
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Error'
+  /login:
+    post:
+      summary: 'Logs in an user'
+      operationId: login
+      tags:
+        - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '200':
+          description: 'Login succesful'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+  /user/subscribe:
+    post:
+      summary: 'Register new user'
+      operationId: subscribe
+      tags:
+        - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscribe'
+      responses:
+        '200':
+          description: 'Registration succesful'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /user/profile:
+    get:
+      summary: 'Sample endpoint: Returns details about current user'
+      operationId: profile
+      tags:
+        - user
+      responses:
+        '200':
+          description: 'Sample response: Details about current user'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Login:
+      type: object
+      required:
+        - login
+        - password
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+    Register:
+      type: object
+      required:
+        - email
+        - username
+        - password
+      properties:
+        email:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+    Response:
+      type: object
+      required:
+        - message
+        - success
+        - data
+      properties:
+        message:
+          type: string
+        success:
+          type: boolean
+        data:
+          type: object
+    LoginResponse:
+      type: object
+      required:
+        - token
+      properties:
+        token:
+          type: string
+    User:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
+    Error:
+      type: object
+      required:
+        - success
+        - message
+        - data
+      properties:
+        message:
+          type: string
+        success:
+          type: boolean
+        data:
+          type: object
