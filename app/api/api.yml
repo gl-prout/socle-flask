@@ -79,7 +79,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Response'
         default:
-          description: Unexpected error
+          description: 'Unexpected error'
           content:
             application/json:
               schema:
