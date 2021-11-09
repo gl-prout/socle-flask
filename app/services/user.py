@@ -38,3 +38,30 @@ def my_profile():
             'user': me,
         }
     ), 200
+
+
+@jwt_required()
+def change_password(req):
+    current_password = req.json['current_password']
+    new_password = req.json['new_password']
+    confirm_new_password = req.json['confirm_new_password']
+    current_hashed_password = current_identity.password
+    if bcrypt.check_password_hash(current_hashed_password, current_password) is False:
+        return resp_comm.response(
+            message='Incorrect password',
+            data={
+                'user': user_repo.to_dto(current_identity)
+            },
+            success=False
+        ), 400
+    if new_password != confirm_new_password:
+        return resp_comm.response(
+            message='Password confirmation not matched',
+            data={},
+            success=False
+        ), 400
+    changed_password = user_repo.change_password(current_identity.id, bcrypt.generate_password_hash(new_password).decode('utf-8'))
+    return resp_comm.response(
+        message='Password updated',
+        data=user_repo.to_dto(changed_password)
+    ), 200

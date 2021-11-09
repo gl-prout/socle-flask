@@ -69,3 +69,11 @@ def list_to_dto(users):
     for user in users:
         results.append(to_dto(user))
     return results
+
+
+def change_password(id, password):
+    user = User.objects(id=id).first()
+    if (user_exists(user)):
+        user.password = password
+        user.save()
+        return user;
