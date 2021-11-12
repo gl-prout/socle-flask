@@ -65,6 +65,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+      security:
+        - bearerAuth: []
   /user/subscribe:
     post:
       summary: 'Register new user'
@@ -102,6 +104,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      security:
+        - bearerAuth: []
 components:
   schemas:
     Login:
@@ -186,3 +190,10 @@ components:
           type: boolean
         data:
           type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      in: header
+      name: Authorization
+      scheme: bearer
+      bearerFormat: JWT
