@@ -45,6 +45,24 @@ Available routes are:
 - `POST - /login` as the login route
 - `GET - /user/profile` requiring a `Bearer token` obtained from `/login` to retrieve current user information
 
+## Api documentation
+
+To access the api definition, the route is:
+
+```
+[GET] /apidoc/api.yml
+```
+
+And to access the Swagger documentation, the route is:
+
+```
+[GET] /api/docs
+```
+
+It may still get a little buggy, but you may be able to understand how it works.
+
+## Docker
+
 Do not use the dockers yet, composing for mongodb is still a WIP
 
 ## Configuration
