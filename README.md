@@ -44,18 +44,23 @@ Available routes are:
 - `POST - /user/subscribe` as the signup route
 - `POST - /login` as the login route
 - `GET - /user/profile` requiring a `Bearer token` obtained from `/login` to retrieve current user information
+- `POST - /posts/create` for creating a post
+- `PUT - /posts/update` for updating a post
+- `GET - /posts/mine` for getting current user posts
+- `GET - /posts/{post_id}` for getting a specific post
+- `DELETE - /posts/{post_id}` for deleting a specific post created by the current user
 
 ## Api documentation
 
 To access the api definition, the route is:
 
-```
+```text
 [GET] /apidoc/api.yml
 ```
 
 And to access the Swagger documentation, the route is:
 
-```
+```text
 [GET] /api/docs
 ```
 
