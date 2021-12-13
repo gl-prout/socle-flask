@@ -166,8 +166,8 @@ paths:
           description: 'Post succesfully deleted'
           content:
             application/json:
-            schema:
-              $ref: '#/components/schemas/Response'
+              schema:
+                $ref: '#/components/schemas/Response'
         default:
           description: 'Error occured'
           content:
