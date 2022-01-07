@@ -27,6 +27,16 @@ cp app/app-config.cfg.dist app/app/app-config.cfg
 cp application.wsgi.dist application.wsgi
 ```
 
+The scripts `config.sh` (if not contributing to the codebase) and `config-dev.sh` (if contributing to the codebase) can be used after cloning the repository.
+
+```bash
+sh config.sh
+```
+or
+```bash
+sh config-dev.sh
+```
+
 The `requirements.txt` was generated using `pipreqs` instead of `pip freeze`
 
 Consider using `pipreqs . --force` instead of `pip freeze` so the file won't be bloated with unrequired python modules or broken dependency version. After the `requirements.txt` has been overwritten, append the line `gunicorn==20.0.4` at the end of the file if you wish to continue launching the application using `gunicorn`.
