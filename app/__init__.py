@@ -10,13 +10,16 @@ from app.common import response as resp_serv
 from app.data.user import User
 from app.repository import user as user_repo
 
+# Configurations
 db = MongoEngine()
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
 app.config.from_pyfile('app-config.cfg')
+# /Configurations
 
-
+# Database
 db.init_app(app)
+# /Database
 
 
 # Error handling
