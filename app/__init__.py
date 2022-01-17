@@ -1,6 +1,7 @@
 import re
 
 from flask import Flask
+from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_jwt import JWT
 from flask_mongoengine import MongoEngine
@@ -13,6 +14,7 @@ from app.repository import user as user_repo
 # Configurations
 db = MongoEngine()
 app = Flask(__name__)
+CORS(app)
 bcrypt = Bcrypt(app)
 app.config.from_pyfile('app-config.cfg')
 # /Configurations
