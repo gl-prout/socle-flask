@@ -14,7 +14,7 @@ from app.repository import user as user_repo
 # Configurations
 db = MongoEngine()
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app)
 bcrypt = Bcrypt(app)
 app.config.from_pyfile('app-config.cfg')
 # /Configurations
