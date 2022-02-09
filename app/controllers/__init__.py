@@ -1,23 +1,8 @@
 import pkgutil
 
 
-METHODS = set([
-    'GET',
-    'POST',
-    'PUT',
-    'PATCH',
-    'DELETE',
-    'COPY',
-    'HEAD',
-    'OPTIONS',
-    'LINK',
-    'UNLINK',
-    'PURGE',
-    'LOCK',
-    'UNLOCK',
-    'PROPFIND',
-    'VIEW'
-])
+METHODS = {'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'COPY', 'HEAD', 'OPTIONS', 'LINK', 'UNLINK', 'PURGE', 'LOCK',
+           'UNLOCK', 'PROPFIND', 'VIEW'}
 
 
 class Controllers:
@@ -36,10 +21,7 @@ class Controllers:
             return 'self' + self.val
 
         def register(self, rule, view_name, view_func):
-            r = {}
-            r["rule"] = rule
-            r["view_name"] = view_name
-            r["view_func"] = view_func
+            r = {"rule": rule, "view_name": view_name, "view_func": view_func}
 
             self.rules.append(r)
 
@@ -48,13 +30,11 @@ class Controllers:
             rule,
             view_name,
             view_func,
-            methods=METHODS
+                methods=None
         ):
-            r = {}
-            r["rule"] = rule
-            r["view_name"] = view_name
-            r["view_func"] = view_func
-            r["methods"] = methods
+            if methods is None:
+                methods = METHODS
+            r = {"rule": rule, "view_name": view_name, "view_func": view_func, "methods": methods}
 
             self.rules.append(r)
 

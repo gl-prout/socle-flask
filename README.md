@@ -39,7 +39,7 @@ sh config-dev.sh
 
 The `requirements.txt` was generated using `pipreqs` instead of `pip freeze`
 
-Consider using `pipreqs . --force` instead of `pip freeze` so the file won't be bloated with unrequired python modules or broken dependency version. After the `requirements.txt` has been overwritten, append the line `gunicorn==20.0.4` at the end of the file if you wish to continue launching the application using `gunicorn`.
+Consider using `pipreqs . --force` instead of `pip freeze` so the file won't be bloated with unrequited python modules or broken dependency version. After the `requirements.txt` has been overwritten, append the line `gunicorn==20.0.4` at the end of the file if you wish to continue launching the application using `gunicorn`.
 
 ## Launch
 

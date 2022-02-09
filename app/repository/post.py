@@ -34,11 +34,11 @@ def find_by_author(user):
 
 def modify_post(identifier, new_title, new_body):
     post = Post.objects(id=identifier).first()
-    if (post_exists(post)):
+    if post_exists(post):
         post.title = new_title
         post.body = new_body
         post.save()
-        return post;
+        return post
     return False
 
 

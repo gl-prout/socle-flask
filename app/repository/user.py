@@ -73,7 +73,7 @@ def list_to_dto(users):
 
 def change_password(id, password):
     user = User.objects(id=id).first()
-    if (user_exists(user)):
+    if user_exists(user):
         user.password = password
         user.save()
-        return user;
+        return user
