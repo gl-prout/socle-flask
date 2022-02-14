@@ -1,6 +1,6 @@
 # Entry point for the application
-from app.controllers import Controllers as controllers
+from app.controllers import Controllers as Ctrl
 
 from . import app  # For application discovery by the 'flask' command
 
-controllers().grab(app)
+Ctrl().grab(app)

@@ -1,4 +1,4 @@
-from app.controllers import Controllers as ctrl
+from app.controllers import Controllers as Ctrl
 from app.services import home as home_serv
 from flask import abort, request
 
@@ -17,12 +17,12 @@ def getapi(filename):
         abort(405, description='Only GET method')
 
 
-ctrl().register_methods(
+Ctrl().register_methods(
     '/',
     'index',
     index
 )
-ctrl().register_methods(
+Ctrl().register_methods(
     '/apidoc/<path:filename>',
     'getapi',
     getapi

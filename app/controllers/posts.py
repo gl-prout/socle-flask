@@ -1,4 +1,4 @@
-from app.controllers import Controllers as ctrl
+from app.controllers import Controllers as Ctrl
 from app.services import posts as post_serv
 from flask import abort, request
 
@@ -30,22 +30,22 @@ def action_post(post_id):
         abort(405, description='Only GET or DELETE method')
 
 
-ctrl().register(
+Ctrl().register(
     '/posts/mine',
     'my_posts',
     my_posts
 )
-ctrl().register_methods(
+Ctrl().register_methods(
     '/posts/create',
     'create_post',
     create_post
 )
-ctrl().register_methods(
+Ctrl().register_methods(
     '/posts/update',
     'update_post',
     update_post
 )
-ctrl().register_methods(
+Ctrl().register_methods(
     '/posts/<string:post_id>',
     'action_post',
     action_post

@@ -60,7 +60,10 @@ def change_password(req):
             data={},
             success=False
         ), 400
-    changed_password = user_repo.change_password(current_identity.id, bcrypt.generate_password_hash(new_password).decode('utf-8'))
+    changed_password = user_repo.change_password(
+        current_identity.id,
+        bcrypt.generate_password_hash(new_password).decode('utf-8')
+    )
     return resp_comm.response(
         message='Password updated',
         data=user_repo.to_dto(changed_password)

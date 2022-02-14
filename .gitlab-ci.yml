@@ -38,7 +38,7 @@ lint-test-job:   # This job also runs in the test stage.
     - sleep 10
     - echo "No lint issues found."
 
-deploy-job:      # This job runs in the deploy stage.
+deploy-job:      # This job runs in the deployment stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
   script:
     - echo "Deploying application..."

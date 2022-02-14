@@ -44,7 +44,7 @@ paths:
               $ref: '#/components/schemas/Login'
       responses:
         '200':
-          description: 'Login succesful'
+          description: 'Login successful'
           content:
             application/json:
               schema:

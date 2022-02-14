@@ -1,4 +1,4 @@
-from app.controllers import Controllers as ctrl
+from app.controllers import Controllers as Ctrl
 from app.services import user as user_serv
 from flask import abort, request
 
@@ -21,17 +21,17 @@ def change_password():
         abort(405, description='Only POST method')
 
 
-ctrl().register_methods(
+Ctrl().register_methods(
     '/user/subscribe',
     'subscribe',
     create_user
 )
-ctrl().register(
+Ctrl().register(
     '/user/profile',
     'profile',
     my_profile
 )
-ctrl().register_methods(
+Ctrl().register_methods(
     '/user/changepassword',
     'change_password',
     change_password

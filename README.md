@@ -131,13 +131,13 @@ If you use templates, here is where your Jinja2 templates will sit
 
 ## Special files
 
-- `__init__.py` is where you setup external python or flask modules
+- `__init__.py` is where you set up external python or flask modules
 - `constants.py` is where you can define constants to be used anywhere in the app
 - `webapp.py` is the main entrypoint to your application
 
 ## Serving using WSGI
 
-You will have to install the requirements system wide instead of inside a python virtualenv.
+You will have to install the requirements system-wide instead of inside a python virtualenv.
 
 You will also have to configure your virtualhost like this
 
