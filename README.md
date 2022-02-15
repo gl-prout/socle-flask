@@ -32,7 +32,9 @@ The scripts `config.sh` (if not contributing to the codebase) and `config-dev.sh
 ```bash
 sh config.sh
 ```
+
 or
+
 ```bash
 sh config-dev.sh
 ```
